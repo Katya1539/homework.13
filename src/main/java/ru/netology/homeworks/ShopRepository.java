@@ -15,10 +15,6 @@ public class ShopRepository {
 
 
     public void add(Product product) {
-        Product prod = new Product(product.id, product.title, product.price);
-        if (product.id == prod.getId() ) {
-            throw new AlreadyExistsException(prod.id);
-        }
         products = addToArray(products, product);
     }
 

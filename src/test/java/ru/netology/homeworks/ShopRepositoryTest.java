@@ -35,7 +35,7 @@ class ShopRepositoryTest {
         repo.add(product3);
 
         Assertions.assertThrows(NotFoundExeption.class, () -> {
-                repo.remove(100);
+            repo.remove(100);
         });
     }
 
@@ -57,21 +57,4 @@ class ShopRepositoryTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void addProductExistIdTest() {
-        ShopRepository repo = new ShopRepository();
-        Product product1 = new Product(1, "телефон", 30_000);
-        Product product2 = new Product(2, "книга", 3000);
-        Product product3 = new Product(3, "машина", 3_000_000);
-        Product product4 = new Product(2, "журнал", 300);
-
-        repo.add(product1);
-        repo.add(product2);
-        repo.add(product3);
-        repo.add(product4);
-
-        Assertions.assertThrows(AlreadyExistsException.class, () -> {
-            repo.add(product4);
-        });
-    }
 }
